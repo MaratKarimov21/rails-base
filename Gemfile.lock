@@ -1,6 +1,8 @@
 GEM
   remote: https://rubygems.org/
   specs:
+    action-cable-redis-backport (1.0.0)
+      actioncable (>= 5.0, < 7.1)
     actioncable (7.0.4.3)
       actionpack (= 7.0.4.3)
       activesupport (= 7.0.4.3)
@@ -71,6 +73,12 @@ GEM
       msgpack (~> 1.2)
     bson (4.15.0)
     builder (3.2.4)
+    cable_ready (5.0.0.pre10)
+      actionpack (>= 5.2)
+      actionview (>= 5.2)
+      activesupport (>= 5.2)
+      railties (>= 5.2)
+      thread-local (>= 1.1.0)
     concurrent-ruby (1.2.2)
     crass (1.0.6)
     date (3.3.3)
@@ -155,6 +163,7 @@ GEM
       thor (~> 1.0)
       zeitwerk (~> 2.5)
     rake (13.0.6)
+    redis (4.8.1)
     reline (0.3.2)
       io-console (~> 0.5)
     ruby2_keywords (0.0.5)
@@ -167,9 +176,20 @@ GEM
       sprockets (>= 3.0.0)
     stimulus-rails (1.2.1)
       railties (>= 6.0.0)
+    stimulus_reflex (3.5.0.pre10)
+      actioncable (>= 5.2, < 8)
+      actionpack (>= 5.2, < 8)
+      actionview (>= 5.2, < 8)
+      activesupport (>= 5.2, < 8)
+      cable_ready (>= 5.0.0.pre10)
+      nokogiri (~> 1.0)
+      rack (~> 2.0)
+      railties (>= 5.2, < 8)
+      redis (>= 4.0, < 6.0)
     tailwindcss-rails (2.0.25-arm64-darwin)
       railties (>= 6.0.0)
     thor (1.2.1)
+    thread-local (1.1.0)
     timeout (0.3.2)
     turbo-rails (1.4.0)
       actionpack (>= 6.0.0)
@@ -177,6 +197,10 @@ GEM
       railties (>= 6.0.0)
     tzinfo (2.0.6)
       concurrent-ruby (~> 1.0)
+    view_component (2.82.0)
+      activesupport (>= 5.2.0, < 8.0)
+      concurrent-ruby (~> 1.0)
+      method_source (~> 1.0)
     web-console (4.2.0)
       actionview (>= 6.0.0)
       activemodel (>= 6.0.0)
@@ -191,6 +215,7 @@ PLATFORMS
   arm64-darwin-21
 
 DEPENDENCIES
+  action-cable-redis-backport (~> 1)
   bootsnap
   debug
   importmap-rails
@@ -198,11 +223,14 @@ DEPENDENCIES
   mongoid
   puma (~> 5.0)
   rails (~> 7.0.4)
+  redis (~> 4.0)
   sprockets-rails
   stimulus-rails
+  stimulus_reflex (= 3.5.0.pre10)
   tailwindcss-rails (~> 2.0)
   turbo-rails
   tzinfo-data
+  view_component
   web-console
 
 RUBY VERSION
